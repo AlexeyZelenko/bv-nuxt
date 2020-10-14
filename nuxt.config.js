@@ -36,6 +36,7 @@ module.exports = {
     }
   },
   modules: [
+    '@nuxtjs/vuetify',
     [
       '@nuxtjs/firebase',
       {
