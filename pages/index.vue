@@ -23,13 +23,17 @@
       </v-row>
     </v-parallax>
     <template >
-      <div class="catalog-item">
+      <v-col
+        cols="12"
+        md="4"
+      >
         <catalog_item
+          class="d-flex align-center"
           :item_data="item"
           v-for="(item, i) in items"
           :key="i"
         />
-      </div>
+      </v-col>
     </template>
   </div>
 </template>
