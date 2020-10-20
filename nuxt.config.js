@@ -35,7 +35,16 @@ module.exports = {
       }
     }
   },
+  // vuetify: {
+  //   customVariables: ['~/assets/variables.scss']
+  // },
+  styleResources: {
+    scss: [
+      '~/assets/variables.scss',
+    ]
+  },
   modules: [
+    '@nuxtjs/style-resources',
     '@nuxtjs/vuetify',
     [
       '@nuxtjs/firebase',
