@@ -17,7 +17,8 @@
   "dependencies": {
     "@nuxtjs/firebase": "^6.1.1",
     "firebase": "^7.23.0",
-    "nuxt": "^2.14.6"
+    "google-maps-api-loader": "^1.1.1",
+    "nuxt": "^2.14.7"
   },
   "devDependencies": {
     "@nuxtjs/style-resources": "^1.0.0",
