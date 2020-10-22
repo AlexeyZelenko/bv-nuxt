@@ -1,11 +1,10 @@
 <template>
-  <div class="v-catalog-item">
+  <div>
     <v-card
-      max-width="200"
     >
       <v-img
         class="white--text align-end"
-        height="200px"
+        min-height="300px"
         :src="item_data.img"
       >
         <v-card-title
@@ -50,16 +49,3 @@
     }
 </script>
 
-<style scoped>
-  .v-catalog-item {
-    min-width: 200px;
-    text-align: center;
-    vertical-align: middle;
-    flex-basis: 25%;
-    box-shadow: 0 0 8px 0 #e0e0e0;
-    padding: 16px;
-    margin-bottom: 16px;
-    z-index: 1;
-    position: relative;
-  }
-</style>

@@ -22,19 +22,16 @@
         </v-col>
       </v-row>
     </v-parallax>
-    <template >
-      <v-col
-        cols="12"
-        md="4"
-      >
+    <div class="services">
+      <div class="container">
         <catalog_item
-          class="d-flex align-center"
+          class="service"
           :item_data="item"
           v-for="(item, i) in items"
           :key="i"
         />
-      </v-col>
-    </template>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -83,17 +80,19 @@
 </script>
 
 <style>
-  /*@import './assets/variables.scss';*/
-  .catalog-item {
-    min-width: 200px;
-    text-align: center;
-    vertical-align: middle;
-    flex-basis: 25%;
-    box-shadow: 0 0 8px 0 #e0e0e0;
-    padding: 16px;
-    margin-bottom: 16px;
-    z-index: 1;
-    position: relative;
-  }
+  /*@import '../assets/variables.scss';*/
+  @import '../assets/style.css';
+  @import '../assets/normalize.css';
+  /*.catalog-item {*/
+  /*  min-width: 200px;*/
+  /*  text-align: center;*/
+  /*  vertical-align: middle;*/
+  /*  flex-basis: 25%;*/
+  /*  box-shadow: 0 0 8px 0 #e0e0e0;*/
+  /*  padding: 16px;*/
+  /*  margin-bottom: 16px;*/
+  /*  z-index: 1;*/
+  /*  position: relative;*/
+  /*}*/
 </style>
 

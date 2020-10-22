@@ -10,7 +10,9 @@
     "start": "nuxt start",
     "generate": "nuxt generate",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
-    "precommit": "npm run lint"
+    "precommit": "npm run lint",
+    "deploy hosting": "firebase deploy --only hosting",
+    "deploy": "deploy firebase"
   },
   "dependencies": {
     "@nuxtjs/firebase": "^6.1.1",
