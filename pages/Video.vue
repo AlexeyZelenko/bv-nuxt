@@ -21,13 +21,18 @@
           </v-card-title>
           <v-card-text class="white text--primary">
             <client-only  placeholder="Загрузка...">
-              <youtube :video-id="item.videoId"></youtube>
+<!--              <youtube :video-id="item.videoId"></youtube>-->
 <!--              <youtube-media :video-id="item.videoId"></youtube-media>-->
+<!--              <youtube-->
+<!--                @ready="ready"-->
+<!--                :player-vars="{ autoplay: 0, controls: 1, modestbranding: 1, showinfo: 0, rel: 0 }"-->
+<!--                :player-width="200"-->
+<!--                :player-height="150"-->
+<!--                :video-id="item.videoId"-->
+<!--              />-->
               <youtube
                 @ready="ready"
                 :player-vars="{ autoplay: 0, controls: 1, modestbranding: 1, showinfo: 0, rel: 0 }"
-                :player-width="200"
-                :player-height="150"
                 :video-id="item.videoId"
               />
             </client-only>
@@ -48,6 +53,7 @@
 
 <script>
     export default {
+      layout: 'videoLayout',
       name: "Video",
       data: () => ({
         videos: [
@@ -94,10 +100,6 @@
 </script>
 
 <style >
-  .descriptions {
-    padding: 10px;
-    border-radius: 5px;
-  }
     iframe {
       max-width: 100%;
       max-height: 400px;
