@@ -1,4 +1,5 @@
 module.exports = {
+  mode: "universal",
   /*
   ** Headers of the page
   */
@@ -20,7 +21,9 @@ module.exports = {
   /*
   ** Build configuration
   */
+  plugins: [{ src: "~/plugins/google-maps", ssr: true }],
   build: {
+    transpile: [/^vue2-google-maps($|\/)/],
     /*
     ** Run ESLint on save
     */
