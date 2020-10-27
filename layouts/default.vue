@@ -38,7 +38,7 @@
         links: [
           {name: 'Головна', value: '/'},
           {name: 'Про церкву', value: 'AboutChurch'},
-          {name: 'Відео', value: 'Contacts'},
+          {name: 'Відео', value: 'Video'},
           {name: 'Контакти', value: 'Contacts'},
         ],
       }
