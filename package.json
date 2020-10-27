@@ -15,11 +15,12 @@
     "deploy": "deploy firebase"
   },
   "dependencies": {
+    "@nuxtjs/axios": "^5.0.0",
     "@nuxtjs/firebase": "^6.1.1",
     "firebase": "^7.23.0",
     "google-maps-api-loader": "^1.1.1",
     "nuxt": "^2.14.7",
-    "@nuxtjs/axios": "^5.0.0",
+    "vue-youtube-embed": "^2.2.2",
     "vue2-google-maps": "^0.10.7"
   },
   "devDependencies": {

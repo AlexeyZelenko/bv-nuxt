@@ -21,9 +21,13 @@ module.exports = {
   /*
   ** Build configuration
   */
-  plugins: [{ src: "~/plugins/google-maps", ssr: true }],
+  plugins: [
+    { src: "~/plugins/google-maps", ssr: true },
+    { src: '~/plugins/youtube', ssr: false }
+  ],
   build: {
-    transpile: [/^vue2-google-maps($|\/)/],
+    transpile: [/^vue2-google-maps($|\/)/, 'vue-youtube-embed'],
+
     /*
     ** Run ESLint on save
     */
