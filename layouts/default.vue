@@ -5,10 +5,10 @@
         <div class="brand">Блага вість</div>
         <nav>
           <ul class="menu">
-            <li><a href="#">About</a></li>
-            <li><a href="#">Team</a></li>
-            <li><a href="#">News</a></li>
-            <li><a href="#">Contact</a></li>
+            <li><a href="#">Головна</a></li>
+            <li><a href="#">Про церкву</a></li>
+            <li><a href="#">Відео</a></li>
+            <li><a href="#">Контакти</a></li>
           </ul>
         </nav>
       </div>
@@ -17,11 +17,6 @@
     <div>
       <nuxt/>
     </div>
-
-
-
-
-
   </v-app>
 
 </template>
@@ -30,7 +25,6 @@
 
   export default {
     components: {
-      'catalog_item': () => import('~/components/catalog_item.vue'),
     },
 
     data() {
@@ -40,14 +34,6 @@
   }
 </script>
 
-<style>
-  iframe {
-    width: 100%;
-    height: 450px;
-    border: 2px;
-    border-bottom-color: black;
-  }
-</style>
 
 
 

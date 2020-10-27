@@ -13,12 +13,23 @@
           class="text-center"
           cols="12"
         >
-          <h1 class="display-1 font-weight-thin mb-4">
-            Vuetify
-          </h1>
-          <h4 class="subheading">
-            Build your application today!
-          </h4>
+          <template>
+            <div class="text-center">
+              <h2>
+                Приходьте на служіння
+              </h2>
+              <h4 class="subheading">
+                Щонеділі 10.00 (вул. Добровольського 5)
+              </h4>
+              <v-btn
+                style="margin: 15px 0 15px"
+                x-large
+                rounded
+              >
+                Дивитися останнє служіння
+              </v-btn>
+            </div>
+          </template>
         </v-col>
       </v-row>
     </v-parallax>
@@ -59,10 +70,10 @@
           <div class="brand">Блага вість</div>
           <nav>
             <ul class="menu">
-              <li><a href="#">About</a></li>
-              <li><a href="#">Team</a></li>
-              <li><a href="#">News</a></li>
-              <li><a href="#">Contact</a></li>
+              <li><a href="#">Головна</a></li>
+              <li><a href="#">Про церкву</a></li>
+              <li><a href="#">Відео</a></li>
+              <li><a href="#">Контакти</a></li>
             </ul>
           </nav>
           <p class="copyright">© {{ new Date().getFullYear() }} — Блага вість</p>
@@ -80,32 +91,32 @@
     data: () => ({
       items: [
         {
-          title: 'Australian beaches',
-          img: "https://cdn.vuetifyjs.com/images/cards/docks.jpg",
+          title: 'Четвер',
+          img: "https://bv.ck.ua/wp-content/uploads/2017/04/adfe8a20-660b-4a61-a747-d2a96a25d738.jpg",
           text: 'Whitehaven Beach',
           subtitle: 'Number 10',
           Share: 'Share',
           id: '1'
         },
         {
-          title: 'Australian2',
-          img: "https://cdn.vuetifyjs.com/images/cards/docks.jpg",
+          title: 'П\'ятниця',
+          img: "https://bv.ck.ua/wp-content/uploads/2017/04/e27d6b97-aa5c-474f-9319-f608b4cce1d8.jpg",
           text: 'Whitehaven Beach',
           subtitle: 'Number 10',
           Share: 'Share',
           id: '2'
         },
         {
-          title: 'Australian3',
-          img: "https://cdn.vuetifyjs.com/images/cards/docks.jpg",
+          title: 'Неділя',
+          img: "https://bv.ck.ua/wp-content/uploads/2017/05/3W_PlV0mzxU.jpg",
           text: 'Whitehaven Beach',
           subtitle: 'Number 10',
           Share: 'Share',
           id: 3
         },
         {
-          title: 'Australian3',
-          img: "https://cdn.vuetifyjs.com/images/cards/docks.jpg",
+          title: 'Неділя',
+          img: "https://bv.ck.ua/wp-content/uploads/2017/04/5a9e0e44-e817-441d-974e-50c826b9a946.jpg",
           text: 'Whitehaven Beach',
           subtitle: 'Number 10',
           Share: 'Share',
