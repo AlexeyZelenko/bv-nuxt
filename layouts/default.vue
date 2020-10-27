@@ -5,10 +5,16 @@
         <div class="brand">Блага вість</div>
         <nav>
           <ul class="menu">
-            <li><a href="#">Головна</a></li>
-            <li><a href="#">Про церкву</a></li>
-            <li><a href="#">Відео</a></li>
-            <li><a href="#">Контакти</a></li>
+            <li>
+              <v-btn
+                text
+                v-for="link in links"
+                :key="link.name"
+                :to="link.value"
+              >
+                {{ link.name }}
+              </v-btn>
+            </li>
           </ul>
         </nav>
       </div>
@@ -29,6 +35,12 @@
 
     data() {
       return {
+        links: [
+          {name: 'Головна', value: '/'},
+          {name: 'Про церкву', value: 'AboutChurch'},
+          {name: 'Відео', value: 'Contacts'},
+          {name: 'Контакти', value: 'Contacts'},
+        ],
       }
     },
   }
