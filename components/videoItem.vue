@@ -1,28 +1,62 @@
 <template>
-	<div>
-    <p>{{ArrayAllIdVideos}}</p>
-  </div>
+  <v-card
+    :color="color[1]"
+    dark
+  >
+    <v-card-title
+      class="title"
+    >
+      {{video.snippet.title}}
+    </v-card-title>
+    <v-card-text class="white text--primary">
+      <client-only  placeholder="Загрузка...">
+<!--                      <youtube :video-id="video.snippet.resourceId.videoId"></youtube>-->
+<!--                      <youtube-media :video-id="video.snippet.resourceId.videoId"></youtube-media>-->
+        <!--              <youtube-->
+        <!--                @ready="ready"-->
+        <!--                :player-vars="{ autoplay: 0, controls: 1, modestbranding: 1, showinfo: 0, rel: 0 }"-->
+        <!--                :player-width="200"-->
+        <!--                :player-height="150"-->
+        <!--                :video-id="item.videoId"-->
+        <!--              />-->
+        <youtube
+          style="padding: 5px"
+          @ready="ready"
+          :player-vars="{ autoplay: 0, controls: 1, modestbranding: 1, showinfo: 0, rel: 0 }"
+          :video-id="video.snippet.resourceId.videoId"
+        />
+      </client-only>
+    </v-card-text>
+  </v-card>
 </template>
 
 <script>
     export default {
       name: "videoItem",
+      data: () => ({
+      }),
       props: {
           video: {
-            type: Array,
+            type: Object,
             default() {
-              return []
+              return {}
             }
           }
       },
+      methods: {
+        ready (event) {
+          this.player = event.target
+        },
+      },
       computed: {
         ArrayAllIdVideos() {
-          return this.video.snippet.resourceId.videoId
+          return this.video.snippet
+        },
+        color() {
+          const Array = [ 'red', 'green', 'blue', 'pink', 'purple', 'purple lighten-2', 'indigo', 'indigo darken-1', 'light-blue lighten-1' ]
+          return [].slice.call(Array).sort(() => Math.random() - 0.5)
         }
       }
     }
 </script>
 
-<style scoped>
-
-</style>
