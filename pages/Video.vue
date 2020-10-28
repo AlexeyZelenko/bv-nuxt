@@ -1,16 +1,10 @@
 <template>
   <v-app>
-
-<!--    <div>-->
-<!--      <button @click="$fetch">Refresh</button>-->
-<!--      <p>{{posts}}</p>-->
-<!--      <p v-if="$fetchState.pending">Fetching posts...</p>-->
-<!--      <p v-else-if="$fetchState.error">Error while fetching posts</p>-->
-<!--      <ul v-else>-->
-<!--        …-->
-<!--      </ul>-->
-<!--    </div>-->
-
+    <videoItem
+      v-for="(video, i) in allVideos.items"
+      :key="i"
+      :video="video"
+    />
     <v-timeline
       style="padding: 10px"
       align-top
@@ -19,7 +13,7 @@
       <v-timeline-item
         v-for="item in videos"
         :key="item.id"
-        :color="item.color"
+        :color="color[0]"
         :icon="item.icon"
         fill-dot
       >
@@ -63,16 +57,21 @@
 </template>
 
 <script>
+  const videoItem = () => import('@/components/videoItem')
+
     export default {
       layout: 'videoLayout',
       name: "Video",
+      components: {
+        videoItem
+      },
       async fetch() {
-        this.posts = await this.$http.$get(
-          'https://jsonplaceholder.typicode.com/posts'
+        this.allVideos = await this.$http.$get(
+          "https://www.googleapis.com/youtube/v3/playlistItems?playlistId=UUSb71yKJmS0eHyhRRl00ioQ&key=AIzaSyAzu641YEewkYY6zzS8nAzTxY6XDLxCCkY&part=snippet&maxResults=50"
         )
       },
       data: () => ({
-        posts: [],
+        allVideos: [],
         videos: [
           {
             color: 'red lighten-2',
@@ -115,7 +114,12 @@
           this.videoId = this.$youtube.getIdFromURL(url)
           this.startTime = this.$youtube.getTimeFromURL(url)
         }
-      }
+      },
+      computed: {
+        color() {
+          return [ 'red', 'green', 'blue' ]
+        }
+      },
     }
 </script>
 
