@@ -17,6 +17,18 @@
         />
       </v-timeline-item>
     </v-timeline>
+    <template>
+      <div class="text-center">
+        <v-btn
+          @click="resultPlus"
+          class="ma-2"
+          outlined
+          color="indigo"
+        >
+          Додати ще 5 відео
+        </v-btn>
+      </div>
+    </template>
   </v-app>
 </template>
 
@@ -31,13 +43,21 @@
       },
       async fetch() {
         this.allVideos = await this.$http.$get(
-          "https://www.googleapis.com/youtube/v3/playlistItems?playlistId=UUSb71yKJmS0eHyhRRl00ioQ&key=AIzaSyAzu641YEewkYY6zzS8nAzTxY6XDLxCCkY&part=snippet&maxResults=10"
+          `https://www.googleapis.com/youtube/v3/playlistItems?playlistId=UUSb71yKJmS0eHyhRRl00ioQ&key=AIzaSyAzu641YEewkYY6zzS8nAzTxY6XDLxCCkY&part=snippet&maxResults=${this.result}`
         )
       },
+      watch: {
+        '$route.query': '$fetch'
+      },
       data: () => ({
+        pageVideoViews: 10,
         allVideos: [],
       }),
       methods: {
+        resultPlus() {
+          this.pageVideoViews = +this.pageVideoViews + 5
+          this.refresh()
+        },
         refresh() {
           this.$fetch()
         },
@@ -46,6 +66,9 @@
         },
       },
       computed: {
+        result() {
+          return this.pageVideoViews
+        },
         color() {
           const Array = [ 'green accent-1', 'lime lighten-1', 'blue', 'deep-orange accent-2', 'green accent-3', 'light-blue accent-2' ]
           return [].slice.call(Array).sort(() => Math.random() - 0.5)
