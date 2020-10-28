@@ -1,20 +1,20 @@
 <template>
   <v-app>
+    <nav>
+      <ul class="menu">
+        <li>
+          <v-btn
+            text
+            v-for="link in links"
+            :key="link.name"
+            :to="link.value"
+          >
+            {{ link.name }}
+          </v-btn>
+        </li>
+      </ul>
+    </nav>
     <v-card>
-      <nav>
-        <ul class="menu">
-          <li>
-            <v-btn
-              text
-              v-for="link in links"
-              :key="link.name"
-              :to="link.value"
-            >
-              {{ link.name }}
-            </v-btn>
-          </li>
-        </ul>
-      </nav>
       <v-tabs
         v-model="tab"
         background-color="deep-purple accent-4"
@@ -27,7 +27,7 @@
         <v-tab
           href="#tab-1"
         >
-          Проповіді
+          Все
           <v-icon>mdi-phone</v-icon>
         </v-tab>
 
@@ -37,7 +37,7 @@
         </v-tab>
 
         <v-tab href="#tab-3">
-          Інше
+          Проповіді
           <v-icon>mdi-account-box</v-icon>
         </v-tab>
       </v-tabs>
@@ -49,7 +49,6 @@
           :value="'tab-' + i"
         >
           <v-card flat>
-            <!--          <v-card-text>{{ text }}</v-card-text>-->
             <nuxt/>
           </v-card>
         </v-tab-item>
@@ -69,7 +68,6 @@
           {name: 'Контакти', value: 'Contacts'},
         ],
         tab: null,
-        text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
       }
     },
 
