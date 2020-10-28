@@ -1,5 +1,16 @@
 <template>
   <v-app>
+
+<!--    <div>-->
+<!--      <button @click="$fetch">Refresh</button>-->
+<!--      <p>{{posts}}</p>-->
+<!--      <p v-if="$fetchState.pending">Fetching posts...</p>-->
+<!--      <p v-else-if="$fetchState.error">Error while fetching posts</p>-->
+<!--      <ul v-else>-->
+<!--        …-->
+<!--      </ul>-->
+<!--    </div>-->
+
     <v-timeline
       style="padding: 10px"
       align-top
@@ -55,7 +66,13 @@
     export default {
       layout: 'videoLayout',
       name: "Video",
+      async fetch() {
+        this.posts = await this.$http.$get(
+          'https://jsonplaceholder.typicode.com/posts'
+        )
+      },
       data: () => ({
+        posts: [],
         videos: [
           {
             color: 'red lighten-2',
@@ -88,6 +105,9 @@
         ],
       }),
       methods: {
+        refresh() {
+          this.$fetch()
+        },
         ready (event) {
           this.player = event.target
         },

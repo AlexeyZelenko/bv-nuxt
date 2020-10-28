@@ -51,6 +51,7 @@ module.exports = {
     ]
   },
   modules: [
+    '@nuxt/http',
     '@nuxtjs/vuetify',
     '@nuxtjs/style-resources',
     [
@@ -80,5 +81,9 @@ module.exports = {
       }
     ]
   ],
+  http: {
+    // настроить любые параметры, такие как
+    // baseURL: "https://jsonplaceholder.typicode.com"
+  }
 }
 
