@@ -39,7 +39,7 @@
                     </template>
                     <v-card>
                       <v-card-title>
-                        <span class="headline">{{this.lastVideo.snippet.title}}</span>
+                        <span class="headline">{{lastVideo.snippet.title}}</span>
                         <v-spacer></v-spacer>
                         <v-btn
                           @click="dialog = false"
@@ -53,7 +53,7 @@
 
                       <youtube
                         :player-vars="{ autoplay: 1}"
-                        :video-id="this.lastVideo.snippet.resourceId.videoId"
+                        :video-id="lastVideo.snippet.resourceId.videoId"
                         @ready="ready"
                       />
                     </v-card>
@@ -122,11 +122,6 @@
       // 'videoItem': () => import('~/components/videoItem.vue'),
       'catalog_item': () => import('~/components/catalog_item.vue')
     },
-    async fetch() {
-      this.lastVideoData = await this.$http.$get(
-        `https://www.googleapis.com/youtube/v3/playlistItems?playlistId=UUSb71yKJmS0eHyhRRl00ioQ&key=AIzaSyAzu641YEewkYY6zzS8nAzTxY6XDLxCCkY&part=snippet&&maxResults=1`
-      )
-    },
     data: () => ({
       lastVideoData: [],
       dialog: false,
@@ -161,9 +156,14 @@
         }
       ]
     }),
+    async fetch() {
+      this.lastVideoData = await this.$http.$get(
+        `https://www.googleapis.com/youtube/v3/playlistItems?playlistId=UUSb71yKJmS0eHyhRRl00ioQ&key=AIzaSyAzu641YEewkYY6zzS8nAzTxY6XDLxCCkY&part=snippet&&maxResults=1`
+      )
+    },
     computed: {
       lastVideo() {
-        return this.lastVideoData.items[0] || []
+        return this.lastVideoData.items[0]
       }
     },
     methods: {
