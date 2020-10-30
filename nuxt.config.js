@@ -45,11 +45,20 @@ module.exports = {
   vuetify: {
     customVariables: ['~/assets/variables.scss']
   },
-  styleResources: {
-    scss: [
-      '~/assets/variables.scss',
-    ]
+  scss: [
+    '~/assets/variables.scss',
+  ],
+  // css: [
+  //   '~/assets/transition.css'
+  // ],
+  pageTransition: {
+    name: "fade",
+    mode: "out-in"
   },
+  // layoutTransition: {
+  //   name: "fade",
+  //   mode: "out-in"
+  // },
   modules: [
     '@nuxt/http',
     '@nuxtjs/vuetify',

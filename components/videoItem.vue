@@ -1,8 +1,5 @@
 <template>
-  <v-card
-    :color="color[1]"
-    dark
-  >
+  <v-card>
     <v-card-title
       class="title"
     >

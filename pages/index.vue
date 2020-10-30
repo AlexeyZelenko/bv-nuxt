@@ -1,5 +1,6 @@
 <template>
-  <div style="max-height: 1000px">
+  <div style="max-height: 1000px" v-bind:class="[dialog ? blurClass : '', bkClass]">
+    <button @click="show = !show">click me</button>
     <v-parallax
       dark
       src="https://bv.ck.ua/wp-content/uploads/2017/05/3W_PlV0mzxU.jpg"
@@ -13,55 +14,60 @@
           class="text-center"
           cols="12"
         >
-          <template>
-            <div class="text-center">
-              <h2>
-                Приходьте на служіння
-              </h2>
-              <h4 class="subheading">
-                Щонеділі 10.00 (вул. Добровольського 5)
-              </h4>
-              <template>
-                <v-row justify="center">
-                  <v-dialog
-                    v-model="dialog"
-                  >
-                    <template v-slot:activator="{ on, attrs }">
-                      <v-btn
-                        rounded
-                        style="margin: 15px 0 15px"
-                        v-bind="attrs"
-                        v-on="on"
-                        x-large
-                      >
-                        Дивитися останнє служіння
-                      </v-btn>
-                    </template>
-                    <v-card>
-                      <v-card-title>
-                        <span class="headline">{{lastVideo.snippet.title}}</span>
-                        <v-spacer></v-spacer>
+          <transition name="fade" appear mode="in-out">
+            <template >
+              <div class="text-center" v-if="show">
+                <h2>
+                  Приходьте на служіння
+                </h2>
+                <h4 class="subheading">
+                  Щонеділі 10.00 (вул. Добровольського 5)
+                </h4>
+                <template>
+                  <v-row justify="center">
+                    <v-dialog
+                      v-model="dialog"
+                    >
+                      <template v-slot:activator="{ on, attrs }">
                         <v-btn
-                          @click="dialog = false"
-                          color="black"
-                          dark
-                          icon
+                          rounded
+                          style="margin: 15px 0 15px"
+                          v-bind="attrs"
+                          v-on="on"
+                          x-large
                         >
-                          <v-icon>mdi-close</v-icon>
+                          Дивитися останнє служіння
                         </v-btn>
-                      </v-card-title>
+                      </template>
+                      <transition name="fade">
+                        <v-card>
+                          <v-card-title>
+                            <span class="headline">{{lastVideo.snippet.title}}</span>
+                            <v-spacer></v-spacer>
+                            <v-btn
+                              @click="dialog = false"
+                              color="black"
+                              dark
+                              icon
+                            >
+                              <v-icon>mdi-close</v-icon>
+                            </v-btn>
+                          </v-card-title>
 
-                      <youtube
-                        :player-vars="{ autoplay: 1}"
-                        :video-id="lastVideo.snippet.resourceId.videoId"
-                        @ready="ready"
-                      />
-                    </v-card>
-                  </v-dialog>
-                </v-row>
-              </template>
-            </div>
-          </template>
+                          <youtube
+                            :player-vars="{ autoplay: 1}"
+                            :video-id="lastVideo.snippet.resourceId.videoId"
+                            @ready="ready"
+                          />
+                        </v-card>
+                      </transition>
+                    </v-dialog>
+                  </v-row>
+                </template>
+              </div>
+            </template>
+          </transition>
+
         </v-col>
       </v-row>
     </v-parallax>
@@ -118,11 +124,21 @@
 
 <script>
   export default {
+    transition: {
+      name: "fade",
+      mode: "out-in"
+    },
+    mounted() {
+      this.show = false
+    },
     components: {
       // 'videoItem': () => import('~/components/videoItem.vue'),
       'catalog_item': () => import('~/components/catalog_item.vue')
     },
     data: () => ({
+      show: true,
+      bkClass: 'bk',
+      blurClass: 'blur',
       lastVideoData: [],
       dialog: false,
       items: [
@@ -178,9 +194,43 @@
   @import '../assets/style.css';
   @import '../assets/normalize.css';
 
+  .fade-enter-active {
+    transition: transform 1s cubic-bezier(1, 0.5, 0.8, 1),
+    color 1s cubic-bezier(1, 0.5, 0.8, 1);
+  }
+  .fade-leave-active {
+    transition: transform 2s cubic-bezier(1, 0.5, 0.8, 1),
+    color 2s cubic-bezier(1, 0.5, 0.8, 1);
+  }
+
+  .fade-enter {
+    color: mediumblue;
+    transform: translateY(20px);
+  }
+
+  .fade-leave-to {
+    transform: translateX(100px);
+    color: cyan;
+  }
+
   iframe {
     width: 100%;
     height: 500px;
+  }
+  .bk {
+    transition: all 0.1s ease-out;
+  }
+
+  .blur {
+    filter: blur(2px);
+    opacity: 0.9;
+  }
+  .fade-enter-active, .fade-leave-active {
+    transition: opacity 0.25s ease-out;
+  }
+
+  .fade-enter, .fade-leave-to {
+    opacity: 0;
   }
 </style>
 
