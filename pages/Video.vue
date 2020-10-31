@@ -79,14 +79,14 @@
           `https://www.googleapis.com/youtube/v3/playlistItems?playlistId=${this.playlistId}&key=AIzaSyAzu641YEewkYY6zzS8nAzTxY6XDLxCCkY&part=snippet&maxResults=${this.result}`
         )
       },
-      watch: {
-        '$route.query': '$fetch'
-      },
       data: () => ({
         resultPlaylistId: 'UUSb71yKJmS0eHyhRRl00ioQ',
         pageVideoViews: 10,
         allVideos: [],
       }),
+      watch: {
+        '$route.query': '$fetch'
+      },
       methods: {
         PlaylistIdSermons() {
           this.resultPlaylistId = 'PLlURDWJlf7fS8-Z9hz4ShqtXdjg2tIGil'

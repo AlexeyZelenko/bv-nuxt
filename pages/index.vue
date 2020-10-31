@@ -14,7 +14,7 @@
           class="text-center"
           cols="12"
         >
-          <transition name="fade" appear mode="in-out">
+          <transition name="fade" appear mode="out-in">
             <template >
               <div class="text-center" v-if="show">
                 <h2>
@@ -31,18 +31,36 @@
                       <template v-slot:activator="{ on, attrs }">
                         <v-btn
                           rounded
-                          style="margin: 15px 0 15px"
+                          style="margin: 15px"
                           v-bind="attrs"
                           v-on="on"
+                          @click="VideoViewLast"
                           x-large
                         >
                           Дивитися останнє служіння
                         </v-btn>
+                        <v-btn
+                          v-if="liveVideoDataOnline"
+                          rounded
+                          style="margin: 15px"
+                          x-large
+                          @click="VideoViewLive"
+                          v-bind="attrs"
+                          v-on="on"
+                        >
+                          Дивитися онлайн служіння
+                        </v-btn>
                       </template>
+
+<!--                      Оснаннє відео-->
                       <transition name="fade">
-                        <v-card>
+                        <v-card
+                          v-if="lastVideoView"
+                          v-for="(video, i) in lastVideoData.items"
+                          :key="i"
+                        >
                           <v-card-title>
-                            <span class="headline">{{lastVideo.snippet.title}}</span>
+                            <span class="headline">{{video.snippet.title}}</span>
                             <v-spacer></v-spacer>
                             <v-btn
                               @click="dialog = false"
@@ -56,7 +74,35 @@
 
                           <youtube
                             :player-vars="{ autoplay: 1}"
-                            :video-id="lastVideo.snippet.resourceId.videoId"
+                            :video-id="video.snippet.resourceId.videoId"
+                            @ready="ready"
+                          />
+                        </v-card>
+                      </transition>
+
+<!--                      Онлайн трансляция-->
+                      <transition name="fade">
+                        <v-card
+                          v-if="liveVideoView"
+                          v-for="(video, i) in liveVideoData.items"
+                          :key="i"
+                        >
+                          <v-card-title>
+                            <span class="headline">{{video.snippet.title}}</span>
+                            <v-spacer></v-spacer>
+                            <v-btn
+                              @click="dialog = false"
+                              color="black"
+                              dark
+                              icon
+                            >
+                              <v-icon>mdi-close</v-icon>
+                            </v-btn>
+                          </v-card-title>
+
+                          <youtube
+                            :player-vars="{ autoplay: 1}"
+                            :video-id="video.id.videoId"
                             @ready="ready"
                           />
                         </v-card>
@@ -129,7 +175,7 @@
       mode: "out-in"
     },
     mounted() {
-      this.show = false
+      this.show = true
     },
     components: {
       // 'videoItem': () => import('~/components/videoItem.vue'),
@@ -140,6 +186,9 @@
       bkClass: 'bk',
       blurClass: 'blur',
       lastVideoData: [],
+      liveVideoData: [],
+      liveVideoView: false,
+      lastVideoView: false,
       dialog: false,
       items: [
         {
@@ -176,15 +225,44 @@
       this.lastVideoData = await this.$http.$get(
         `https://www.googleapis.com/youtube/v3/playlistItems?playlistId=UUSb71yKJmS0eHyhRRl00ioQ&key=AIzaSyAzu641YEewkYY6zzS8nAzTxY6XDLxCCkY&part=snippet&&maxResults=1`
       )
+      this.liveVideoData = await this.$http.$get(
+        `https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=UC0LDCL28b4uZ0nqr1bH7CSw&eventType=live&type=video&key=AIzaSyAzu641YEewkYY6zzS8nAzTxY6XDLxCCkY`
+      )
     },
     computed: {
+      liveVideoDataOnline() {
+        if (this.liveVideoData.item) {
+          return true
+        } else {
+          return false
+        }
+      },
       lastVideo() {
         return this.lastVideoData.items[0]
+      },
+      liveVideo() {
+        return this.liveVideoData.items[0]
       }
     },
+    watch: {
+      '$route.query': '$fetch'
+    },
     methods: {
+      VideoViewLast() {
+        this.dialog = true
+       this.lastVideoView = true
+        this.liveVideoView = false
+      },
+      VideoViewLive() {
+        this.dialog = true
+        this.liveVideoView = true
+        this.lastVideoView = false
+      },
       ready(event) {
         this.player = event.target
+      },
+      refresh() {
+        this.$fetch()
       },
     }
   }
