@@ -37,19 +37,37 @@
         contacts: [
           {
             title: 'Пастор',
-            name: 'Петя',
-            text: 'Lorem ipsum dolor sit amet, no nam oblique veritus. Commune scaevola imperdiet nec ut, sed euismod convenire principes at. Est et nobis iisque percipit, an vim zril disputando voluptatibus, vix an salutandi sententiae.',
-            avatar: 'http://i.pravatar.cc/65'
+            name: 'Бієвець Юрій Вікторович',
+            text: 'Пастор (івр. רועה, лат. Pastor «пастух») або «пастир» - біблійний термін, який вказує на обов\'язок пастиря піклуватися про церкви, тобто пастви (алегорично «стадо овець»). У лютеранських громадах пасторами називають людей, покликаних для публічної проповіді і здійснення таїнств.',
+            avatar: ''
           },
           {
             title: 'Помічник пастора',
-            name: 'Вася',
+            name: 'Підгорецька Вікторія',
             text: 'Lorem ipsum dolor sit amet, no nam oblique veritus. Commune scaevola imperdiet nec ut, sed euismod convenire principes at. Est et nobis iisque percipit, an vim zril disputando voluptatibus, vix an salutandi sententiae.',
-            avatar: 'http://i.pravatar.cc/65'
+            avatar: ''
           },
           {
-            title: 'Lorem ipsum',
-            name: 'Юра',
+            title: 'Регіональний служитель',
+            name: 'Бобков Володимир',
+            text: 'Lorem ipsum dolor sit amet, no nam oblique veritus. Commune scaevola imperdiet nec ut, sed euismod convenire principes at. Est et nobis iisque percipit, an vim zril disputando voluptatibus, vix an salutandi sententiae.',
+            avatar: ''
+          },
+          {
+            title: 'Регіональний служитель',
+            name: 'Воронков Дмитро',
+            text: 'Lorem ipsum dolor sit amet, no nam oblique veritus. Commune scaevola imperdiet nec ut, sed euismod convenire principes at. Est et nobis iisque percipit, an vim zril disputando voluptatibus, vix an salutandi sententiae.',
+            avatar: ''
+          },
+          {
+            title: 'Регіональний служитель',
+            name: 'Афанасенко',
+            text: 'Lorem ipsum dolor sit amet, no nam oblique veritus. Commune scaevola imperdiet nec ut, sed euismod convenire principes at. Est et nobis iisque percipit, an vim zril disputando voluptatibus, vix an salutandi sententiae.',
+            avatar: ''
+          },
+          {
+            title: 'Регіональний служитель',
+            name: 'мав',
             text: 'Lorem ipsum dolor sit amet, no nam oblique veritus. Commune scaevola imperdiet nec ut, sed euismod convenire principes at. Est et nobis iisque percipit, an vim zril disputando voluptatibus, vix an salutandi sententiae.',
             avatar: 'http://i.pravatar.cc/65'
           },

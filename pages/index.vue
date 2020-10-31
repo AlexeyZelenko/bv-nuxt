@@ -1,6 +1,10 @@
 <template>
   <div style="max-height: 1000px" v-bind:class="[dialog ? blurClass : '', bkClass]">
-    <button @click="show = !show">click me</button>
+<!--    <button-->
+<!--      @click="show = !show"-->
+<!--    >-->
+<!--      click me-->
+<!--    </button>-->
     <v-parallax
       dark
       src="https://bv.ck.ua/wp-content/uploads/2017/05/3W_PlV0mzxU.jpg"
@@ -21,7 +25,7 @@
                   Приходьте на служіння
                 </h2>
                 <h4 class="subheading">
-                  Щонеділі 10.00 (вул. Добровольського 5)
+                  Щонеділі 10.00
                 </h4>
                 <template>
                   <v-row justify="center">
@@ -40,7 +44,6 @@
                           Дивитися останнє служіння
                         </v-btn>
                         <v-btn
-                          v-if="liveVideoDataOnline"
                           rounded
                           style="margin: 15px"
                           x-large
@@ -230,13 +233,13 @@
       )
     },
     computed: {
-      liveVideoDataOnline() {
-        if (this.liveVideoData.item) {
-          return true
-        } else {
-          return false
-        }
-      },
+      // liveVideoDataOnline() {
+      //   if (this.liveVideoData.item) {
+      //     return true
+      //   } else {
+      //     return false
+      //   }
+      // },
       lastVideo() {
         return this.lastVideoData.items[0]
       },
