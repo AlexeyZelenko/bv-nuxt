@@ -59,7 +59,11 @@ module.exports = {
   //   name: "fade",
   //   mode: "out-in"
   // },
+  bootstrapVue: {
+    icons: true // Install the IconsPlugin (in addition to BootStrapVue plugin
+  },
   modules: [
+    'bootstrap-vue/nuxt',
     '@nuxt/http',
     '@nuxtjs/vuetify',
     '@nuxtjs/style-resources',
