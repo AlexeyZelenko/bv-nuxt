@@ -3,19 +3,12 @@
     <v-card-title
       class="title"
     >
-      {{video.snippet.title}}
+      <span
+        v-html="video.snippet.title"
+      ></span>
     </v-card-title>
     <v-card-text class="white text--primary">
       <client-only  placeholder="Загрузка...">
-<!--                      <youtube :video-id="video.snippet.resourceId.videoId"></youtube>-->
-<!--                      <youtube-media :video-id="video.snippet.resourceId.videoId"></youtube-media>-->
-        <!--              <youtube-->
-        <!--                @ready="ready"-->
-        <!--                :player-vars="{ autoplay: 0, controls: 1, modestbranding: 1, showinfo: 0, rel: 0 }"-->
-        <!--                :player-width="200"-->
-        <!--                :player-height="150"-->
-        <!--                :video-id="item.videoId"-->
-        <!--              />-->
         <youtube
           style="padding: 5px"
           @ready="ready"

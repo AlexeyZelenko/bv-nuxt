@@ -17,7 +17,6 @@
   "dependencies": {
     "@nuxtjs/axios": "^5.0.0",
     "@nuxtjs/firebase": "^6.1.1",
-    "bootstrap-vue": "^2.18.1",
     "firebase": "^7.24.0",
     "google-maps-api-loader": "^1.1.1",
     "nuxt": "^2.14.7",

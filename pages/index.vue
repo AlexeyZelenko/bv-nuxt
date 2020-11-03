@@ -44,6 +44,7 @@
                           Дивитися останнє служіння
                         </v-btn>
                         <v-btn
+                          v-if="liveVideoDataOnline"
                           rounded
                           style="margin: 15px"
                           x-large
@@ -229,17 +230,17 @@
         `https://www.googleapis.com/youtube/v3/playlistItems?playlistId=UUSb71yKJmS0eHyhRRl00ioQ&key=AIzaSyAzu641YEewkYY6zzS8nAzTxY6XDLxCCkY&part=snippet&&maxResults=1`
       )
       this.liveVideoData = await this.$http.$get(
-        `https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=UC0LDCL28b4uZ0nqr1bH7CSw&eventType=live&type=video&key=AIzaSyAzu641YEewkYY6zzS8nAzTxY6XDLxCCkY`
+        `https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=UCSb71yKJmS0eHyhRRl00ioQ&eventType=live&type=video&key=AIzaSyAzu641YEewkYY6zzS8nAzTxY6XDLxCCkY`
       )
     },
     computed: {
-      // liveVideoDataOnline() {
-      //   if (this.liveVideoData.item) {
-      //     return true
-      //   } else {
-      //     return false
-      //   }
-      // },
+      liveVideoDataOnline() {
+        if (this.liveVideoData.item) {
+          return true
+        } else {
+          return false
+        }
+      },
       lastVideo() {
         return this.lastVideoData.items[0]
       },

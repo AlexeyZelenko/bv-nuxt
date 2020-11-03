@@ -1,5 +1,6 @@
 <template>
   <v-app>
+<!--    Меню-->
     <template>
       <v-tabs
         fixed-tabs
@@ -33,23 +34,22 @@
         </v-tab>
       </v-tabs>
     </template>
-    <v-timeline
-      style="padding: 10px"
-      align-top
-      :dense="$vuetify.breakpoint.smAndDown"
-    >
-      <v-timeline-item
-        v-for="(video, i) in allVideos.items"
-        :key="i"
-        :color="color[0]"
-        icon="mdi-star"
-        fill-dot
-      >
-        <videoItem
-          :video="video"
-        />
-      </v-timeline-item>
-    </v-timeline>
+
+    <template>
+      <v-row>
+        <v-col
+          v-for="(video, i) in allVideos.items"
+          :key="i"
+          class="d-flex child-flex"
+        >
+          <videoItem
+            :video="video"
+          />
+        </v-col>
+      </v-row>
+    </template>
+
+<!--    Добавить видео-->
     <template>
       <div class="text-center">
         <v-btn
