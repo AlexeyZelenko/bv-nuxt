@@ -122,7 +122,9 @@
       </v-row>
     </v-parallax>
     <div class="services">
-      <div class="container">
+      <div
+        class="container"
+      >
         <catalog_item
           :item_data="item"
           :key="i"
@@ -130,7 +132,9 @@
           v-for="(item, i) in items"
         />
       </div>
+
     </div>
+
     <div>
       <footer>
         <div>
@@ -182,7 +186,6 @@
       this.show = true
     },
     components: {
-      // 'videoItem': () => import('~/components/videoItem.vue'),
       'catalog_item': () => import('~/components/catalog_item.vue')
     },
     data: () => ({

@@ -1,6 +1,7 @@
 <template>
   <div>
     <v-card
+      @click="$refs.modalName.openModal()"
     >
       <v-img
         class="white--text align-end"
@@ -20,16 +21,40 @@
         <div>{{item_data.text}}</div>
       </v-card-text>
 
-      <v-card-actions>
-        <v-btn
-          color="orange"
-          text
-        >
-          {{item_data.Share}}
-        </v-btn>
-
-      </v-card-actions>
     </v-card>
+    <modal ref="modalName">
+      <template v-slot:header>
+        <h3>{{item_data.text}}</h3>
+      </template>
+
+      <template v-slot:body>
+        <v-container fluid>
+          {{item_data.text}} - "це..."
+        </v-container>
+      </template>
+
+      <template v-slot:footer>
+        <div>
+          <v-btn
+            @click="$refs.modalName.closeModal()"
+            rounded
+            color="primary"
+            dark
+            style="margin: 5px"
+          >
+            Отменить
+          </v-btn>
+          <v-btn
+            @click="$refs.modalName.closeModal()"
+            rounded
+            color="primary"
+            dark
+          >
+            Сохранить
+          </v-btn>
+        </div>
+      </template>
+    </modal>
   </div>
 </template>
 
@@ -37,7 +62,11 @@
     export default {
       name: "catalog_item",
       components: {
+        'Modal': () => import('~/components/Modal.vue'),
       },
+      data: () => ({
+        custom: true,
+    }),
       props: {
         item_data: {
           type: Object,

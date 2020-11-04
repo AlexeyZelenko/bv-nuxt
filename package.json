@@ -15,6 +15,7 @@
     "deploy": "deploy firebase"
   },
   "dependencies": {
+    "@nuxtjs/vuetify": "~1.11.2",
     "@nuxtjs/axios": "^5.0.0",
     "@nuxtjs/firebase": "^6.1.1",
     "firebase": "^7.24.0",
@@ -24,6 +25,7 @@
     "vue2-google-maps": "^0.10.7"
   },
   "devDependencies": {
+    "@nuxt/http": "^0.6.0",
     "@nuxtjs/style-resources": "^1.0.0",
     "@nuxtjs/vuetify": "^1.11.2",
     "babel-eslint": "^10.0.1",
@@ -31,7 +33,11 @@
     "eslint-friendly-formatter": "^4.0.1",
     "eslint-loader": "^2.1.1",
     "eslint-plugin-vue": "^4.0.0",
+    "fibers": "^5.0.0",
     "node-sass": "^4.14.1",
-    "sass-loader": "^10.0.3"
+    "pug": "^3.0.0",
+    "pug-plain-loader": "^1.0.0",
+    "sass": "^1.28.0",
+    "sass-loader": "^10.0.5"
   }
 }

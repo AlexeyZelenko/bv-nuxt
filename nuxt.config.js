@@ -26,7 +26,7 @@ module.exports = {
     { src: '~/plugins/youtube', ssr: false }
   ],
   build: {
-    transpile: [/^vue2-google-maps($|\/)/, 'vue-youtube-embed'],
+    transpile: ['vuetify/lib', /^vue2-google-maps($|\/)/, 'vue-youtube-embed'],
 
     /*
     ** Run ESLint on save
