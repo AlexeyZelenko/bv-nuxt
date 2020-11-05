@@ -1,10 +1,5 @@
 <template>
-  <div style="max-height: 1000px" v-bind:class="[dialog ? blurClass : '', bkClass]">
-<!--    <button-->
-<!--      @click="show = !show"-->
-<!--    >-->
-<!--      click me-->
-<!--    </button>-->
+  <div style="max-height: 1000px; width: 100%" v-bind:class="[dialog ? blurClass : '', bkClass]">
     <v-parallax
       dark
       src="https://bv.ck.ua/wp-content/uploads/2017/05/3W_PlV0mzxU.jpg"

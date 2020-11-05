@@ -25,6 +25,7 @@
       </v-list>
     </v-navigation-drawer>
     <v-app-bar
+      style="height: 100px"
       :clipped-left="clipped"
       fixed
       app
@@ -42,13 +43,14 @@
       >
         <v-icon>mdi-application</v-icon>
       </v-btn>
-      <v-btn
-        icon
-        @click.stop="fixed = !fixed"
-      >
-        <v-icon>mdi-minus</v-icon>
-      </v-btn>
+<!--      <v-btn-->
+<!--        icon-->
+<!--        @click.stop="fixed = !fixed"-->
+<!--      >-->
+<!--        <v-icon>mdi-minus</v-icon>-->
+<!--      </v-btn>-->
       <v-toolbar-title v-text="title" />
+<!--      <v-toolbar-subtitle v-text="subtitle" />-->
       <v-spacer />
       <v-btn
         icon
@@ -58,8 +60,8 @@
       </v-btn>
     </v-app-bar>
     <v-main>
-      <v-container>
-        <nuxt />
+      <v-container style="width: 100%">
+        <nuxt/>
       </v-container>
     </v-main>
     <v-navigation-drawer
@@ -75,16 +77,16 @@
               mdi-repeat
             </v-icon>
           </v-list-item-action>
-          <v-list-item-title>Switch drawer (click me)</v-list-item-title>
+          <v-list-item-title>Ящик переключателя (нажми на меня)</v-list-item-title>
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
-    <v-footer
-      :absolute="!fixed"
-      app
-    >
-      <span>&copy; {{ new Date().getFullYear() }}</span>
-    </v-footer>
+<!--    <v-footer-->
+<!--      :absolute="!fixed"-->
+<!--      app-->
+<!--    >-->
+<!--      <span>&copy; {{ new Date().getFullYear() }}</span>-->
+<!--    </v-footer>-->
   </v-app>
 </template>
 
@@ -100,11 +102,13 @@
           {name: 'Про церкву', value: 'AboutChurch', icon: 'mdi-church',},
           {name: 'Відео', value: 'Video', icon: 'mdi-video',},
           {name: 'Контакти', value: 'Contacts', icon: 'mdi-contacts',},
+          {name: 'Inspire', value: 'inspire', icon: 'mdi-chart-bubble',},
         ],
         miniVariant: false,
         right: true,
         rightDrawer: false,
-        title: 'Блага вість'
+        title: 'Блага вість',
+        subtitle: 'Церква християн віри євангельскої'
       }
     }
   }
