@@ -20,33 +20,36 @@
       <v-card-text class="text--primary">
         <div>{{item_data.text}}</div>
       </v-card-text>
+      <template>
+        <modal ref="modalName">
+          <template v-slot:header>
+            <h3>{{item_data.text}}</h3>
+          </template>
 
+          <template v-slot:body>
+            <v-container fluid>
+              {{item_data.description}}
+            </v-container>
+          </template>
+
+          <template v-slot:footer>
+            <div>
+              <v-btn
+                @click="$refs.modalName.closeModal()"
+                rounded
+                color="primary"
+                dark
+                style="margin: 5px"
+              >
+                Закрити
+              </v-btn>
+            </div>
+          </template>
+        </modal>
+      </template>
     </v-card>
-    <modal ref="modalName">
-      <template v-slot:header>
-        <h3>{{item_data.text}}</h3>
-      </template>
 
-      <template v-slot:body>
-        <v-container fluid>
-          {{item_data.text}} - "це..."
-        </v-container>
-      </template>
 
-      <template v-slot:footer>
-        <div>
-          <v-btn
-            @click="$refs.modalName.closeModal()"
-            rounded
-            color="primary"
-            dark
-            style="margin: 5px"
-          >
-            Закрити
-          </v-btn>
-        </div>
-      </template>
-    </modal>
   </div>
 </template>
 
