@@ -258,9 +258,9 @@
         return this.liveVideoData.items[0]
       }
     },
-    watch: {
-      '$route.query': '$fetch'
-    },
+    // watch: {
+    //   '$route.query': '$fetch'
+    // },
     methods: {
       VideoViewLast() {
         this.dialog = true
