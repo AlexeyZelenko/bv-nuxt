@@ -42,15 +42,7 @@
             dark
             style="margin: 5px"
           >
-            Отменить
-          </v-btn>
-          <v-btn
-            @click="$refs.modalName.closeModal()"
-            rounded
-            color="primary"
-            dark
-          >
-            Сохранить
+            Закрити
           </v-btn>
         </div>
       </template>
@@ -59,10 +51,12 @@
 </template>
 
 <script>
+    const Modal = () => import('~/components/Modal.vue')
+
     export default {
       name: "catalog_item",
       components: {
-        'Modal': () => import('~/components/Modal.vue'),
+        Modal
       },
       data: () => ({
         custom: true,
