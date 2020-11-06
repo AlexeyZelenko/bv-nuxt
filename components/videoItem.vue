@@ -1,21 +1,20 @@
 <template>
-  <v-card>
+  <v-card flex>
     <v-card-title
-      class="title"
+      style="text-align: center"
     >
       <span
+        style="text-align: center"
         v-html="video.snippet.title"
       ></span>
     </v-card-title>
-    <v-card-text class="white text--primary">
-      <client-only  placeholder="Загрузка...">
-        <youtube
-          style="padding: 5px"
-          @ready="ready"
-          :player-vars="{ autoplay: 0, controls: 1, modestbranding: 1, showinfo: 0, rel: 0 }"
-          :video-id="video.snippet.resourceId.videoId"
-        />
-      </client-only>
+    <v-card-text>
+      <youtube
+        style="padding: 5px"
+        @ready="ready"
+        :player-vars="{ autoplay: 0, controls: 1, modestbranding: 1, showinfo: 0, rel: 0 }"
+        :video-id="video.snippet.resourceId.videoId"
+      />
     </v-card-text>
   </v-card>
 </template>

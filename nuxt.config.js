@@ -13,7 +13,7 @@ module.exports = {
     htmlAttrs: {
       lang: 'ru'
     },
-    title: 'bv-nuxt',
+    title: 'Блага вість',
     meta: [
       { hid: 'description', name: 'description', content: '' }
     ],
@@ -26,7 +26,7 @@ module.exports = {
   },
   styleResources: {
     // your settings here
-    scss: ['./assets/scss/global-variables.scss'], // alternative: scss
+    // scss: ['./assets/scss/global-variables.scss'],
     less: [],
     stylus: []
   },
@@ -51,8 +51,8 @@ module.exports = {
     }
   },
   css: [
-    // 'normalize.css',
-    // './assets/scss/global-styles.scss'
+    '~/assets/normalize.css',
+    '~/assets/style.css'
   ],
   /*
   ** Customize the progress bar color
@@ -98,11 +98,6 @@ module.exports = {
         }
       }
     }),
-    splitChunks: {
-      layouts: true,
-      pages: true,
-      commons: true
-    },
     optimization: {
       minimize: !isDev
     },
@@ -197,8 +192,8 @@ module.exports = {
   vuetify: {
     customVariables: ['~/assets/variables.scss'],
     theme: {
-      dark: true,
-      white: false,
+      dark: false,
+      white: true,
       themes: {
         dark: {
           primary: colors.blue.darken2,

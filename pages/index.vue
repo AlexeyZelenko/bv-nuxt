@@ -3,7 +3,7 @@
     <v-parallax
       dark
       src="https://bv.ck.ua/wp-content/uploads/2017/05/3W_PlV0mzxU.jpg"
-      style="height: 700px"
+      style="height: 700px; margin-top: -50px"
     >
       <v-row
         align="center"
@@ -280,25 +280,6 @@
 <style>
   @import '../assets/style.css';
 
-  .fade-enter-active {
-    transition: transform 1s cubic-bezier(1, 0.5, 0.8, 1),
-    color 1s cubic-bezier(1, 0.5, 0.8, 1);
-  }
-  .fade-leave-active {
-    transition: transform 2s cubic-bezier(1, 0.5, 0.8, 1),
-    color 2s cubic-bezier(1, 0.5, 0.8, 1);
-  }
-
-  .fade-enter {
-    color: mediumblue;
-    transform: translateY(20px);
-  }
-
-  .fade-leave-to {
-    transform: translateX(100px);
-    color: cyan;
-  }
-
   iframe {
     width: 100%;
     height: 500px;
@@ -310,13 +291,6 @@
   .blur {
     filter: blur(2px);
     opacity: 0.9;
-  }
-  .fade-enter-active, .fade-leave-active {
-    transition: opacity 0.25s ease-out;
-  }
-
-  .fade-enter, .fade-leave-to {
-    opacity: 0;
   }
 </style>
 

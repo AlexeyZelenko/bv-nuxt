@@ -25,62 +25,68 @@
       </v-list>
     </v-navigation-drawer>
     <v-app-bar
-      style="height: 100px"
       :clipped-left="clipped"
-      fixed
       app
+      shrink-on-scroll
+      prominent
+      scroll-target="#scrolling-techniques"
     >
-      <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
+      <v-app-bar-nav-icon
+        style="padding-bottom: 30px"
+        @click.stop="drawer = !drawer"
+      />
       <v-btn
+        style="padding-bottom: 30px"
         icon
         @click.stop="miniVariant = !miniVariant"
       >
-        <v-icon>mdi-{{ `chevron-${miniVariant ? 'right' : 'left'}` }}</v-icon>
+        <v-icon>
+          mdi-{{ `chevron-${miniVariant ? 'right' : 'left'}` }}
+        </v-icon>
       </v-btn>
-      <v-btn
-        icon
-        @click.stop="clipped = !clipped"
+      <v-toolbar-title
+        style="padding: 5px; margin-top: 5px"
       >
-        <v-icon>mdi-application</v-icon>
-      </v-btn>
-<!--      <v-btn-->
-<!--        icon-->
-<!--        @click.stop="fixed = !fixed"-->
-<!--      >-->
-<!--        <v-icon>mdi-minus</v-icon>-->
-<!--      </v-btn>-->
-      <v-toolbar-title v-text="title" />
-<!--      <v-toolbar-subtitle v-text="subtitle" />-->
+        <v-list-item>
+          <v-list-item-content
+          >
+            <v-list-item-title class="overline mb-4">
+              Церква християн віри євангельскої
+            </v-list-item-title>
+            <div
+              class="headline mb-1"
+            >
+              Блага вість
+            </div>
+<!--            <v-list-item-subtitle-->
+<!--              style="margin-top: 5px"-->
+<!--            >-->
+<!--              Черкаси-->
+<!--            </v-list-item-subtitle>-->
+          </v-list-item-content>
+        </v-list-item>
+      </v-toolbar-title>
       <v-spacer />
       <v-btn
+        style="padding-bottom: 20px"
         icon
-        @click.stop="rightDrawer = !rightDrawer"
       >
-        <v-icon>mdi-menu</v-icon>
+        <v-icon>mdi-account-box</v-icon>
       </v-btn>
     </v-app-bar>
     <v-main>
-      <v-container style="width: 100%">
-        <nuxt/>
-      </v-container>
+      <v-sheet
+        id="scrolling-techniques"
+        class="overflow-y-auto"
+        max-height="700"
+      >
+        <v-container
+          style="width: 100%; height: 1000px"
+        >
+          <nuxt/>
+        </v-container>
+      </v-sheet>
     </v-main>
-    <v-navigation-drawer
-      v-model="rightDrawer"
-      :right="right"
-      temporary
-      fixed
-    >
-      <v-list>
-        <v-list-item @click.native="right = !right">
-          <v-list-item-action>
-            <v-icon light>
-              mdi-repeat
-            </v-icon>
-          </v-list-item-action>
-          <v-list-item-title>Ящик переключателя (нажми на меня)</v-list-item-title>
-        </v-list-item>
-      </v-list>
-    </v-navigation-drawer>
 <!--    <v-footer-->
 <!--      :absolute="!fixed"-->
 <!--      app-->
@@ -113,3 +119,4 @@
     }
   }
 </script>
+
