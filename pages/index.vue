@@ -153,18 +153,37 @@
             <!--      />-->
           </div>
         </div>
-        <div class="container">
-          <div class="brand">Блага вість</div>
-          <nav>
-            <ul class="menu">
-              <li><a href="#">Головна</a></li>
-              <li><a href="#">Про церкву</a></li>
-              <li><a href="#">Відео</a></li>
-              <li><a href="#">Контакти</a></li>
-            </ul>
-          </nav>
-          <p class="copyright">© {{ new Date().getFullYear() }} — Блага вість</p>
-        </div>
+        <template>
+          <v-footer
+            dark
+            padless
+          >
+            <v-card
+              flat
+              tile
+              width="100%"
+              class="indigo lighten-1 text-center"
+            >
+              <v-card-text>
+                <v-btn
+                  v-for="icon in icons"
+                  :key="icon.icon"
+                  class="mx-4"
+                  icon
+                  :href="icon.src"
+                >
+                  <v-icon size="24px">
+                    {{ icon.icon }}
+                  </v-icon>
+                </v-btn>
+              </v-card-text>
+
+              <v-card-text class="py-2 white--text text-center">
+                {{ new Date().getFullYear() }} — <strong>Блага вість</strong>
+              </v-card-text>
+            </v-card>
+          </v-footer>
+        </template>
       </footer>
     </div>
   </div>
@@ -183,6 +202,17 @@
       'catalog_item': () => import('~/components/catalog_item.vue')
     },
     data: () => ({
+      icons: [
+        {
+          icon: 'mdi-facebook', src: 'https://www.facebook.com/%D0%A6%D0%B5%D1%80%D0%BA%D0%BE%D0%B2%D1%8C-%D0%91%D0%BB%D0%B0%D0%B3%D0%B0%D1%8F-%D0%92%D0%B5%D1%81%D1%82%D1%8C-%D0%A7%D0%B5%D1%80%D0%BA%D0%B0%D1%81%D1%81%D1%8B-746415165547326/'
+        },{
+          icon: 'mdi-youtube-tv', src: 'https://www.youtube.com/channel/UCSb71yKJmS0eHyhRRl00ioQ'
+        },{
+          icon: 'mdi-email', src: 'mailto:info@bv.ck.ua'
+        },{
+          icon: 'mdi-instagram', src: 'https://www.instagram.com/bv.ck.ua/'
+        },
+      ],
       show: true,
       bkClass: 'bk',
       blurClass: 'blur',
