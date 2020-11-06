@@ -1,6 +1,10 @@
 <template>
   <v-app>
-    <v-timeline style="padding: 10px">
+    <v-timeline
+      align-top
+      :dense="$vuetify.breakpoint.smAndDown"
+      style="padding: 10px"
+    >
       <v-timeline-item
         v-for="contact in contacts"
         :key="contact.name"

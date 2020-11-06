@@ -108,6 +108,7 @@
           {name: 'Про церкву', value: 'AboutChurch', icon: 'mdi-church',},
           {name: 'Відео', value: 'Video', icon: 'mdi-video',},
           {name: 'Контакти', value: 'Contacts', icon: 'mdi-contacts',},
+          {name: 'События', value: 'Developments', icon: 'mdi-folder-multiple-image',},
           {name: 'Inspire', value: 'inspire', icon: 'mdi-chart-bubble',},
         ],
         miniVariant: false,
