@@ -78,11 +78,8 @@
       <v-sheet
         id="scrolling-techniques"
         class="overflow-y-auto"
-        max-height="700"
       >
-        <v-container
-          style="width: 100%; height: 1000px"
-        >
+        <v-container>
           <nuxt/>
         </v-container>
       </v-sheet>
@@ -111,9 +108,7 @@
           {name: 'События', value: 'Developments', icon: 'mdi-folder-multiple-image',},
           {name: 'Inspire', value: 'inspire', icon: 'mdi-chart-bubble',},
         ],
-        miniVariant: false,
-        right: true,
-        rightDrawer: false,
+        miniVariant: true,
         title: 'Блага вість',
         subtitle: 'Церква християн віри євангельскої'
       }

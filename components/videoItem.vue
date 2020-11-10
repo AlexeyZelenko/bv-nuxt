@@ -1,5 +1,10 @@
 <template>
-  <v-card flex>
+  <v-card
+    max-width="400"
+    class="mx-auto"
+    flex
+    style="margin: 5px"
+  >
     <v-card-title
       style="text-align: center"
     >
@@ -14,6 +19,7 @@
         @ready="ready"
         :player-vars="{ autoplay: 0, controls: 1, modestbranding: 1, showinfo: 0, rel: 0 }"
         :video-id="video.snippet.resourceId.videoId"
+        player-width="100%"
       />
     </v-card-text>
   </v-card>
@@ -41,11 +47,12 @@
         ArrayAllIdVideos() {
           return this.video.snippet
         },
-        color() {
-          const Array = [ 'red', 'green', 'blue', 'pink', 'purple', 'purple lighten-2', 'indigo', 'indigo darken-1', 'light-blue lighten-1' ]
-          return [].slice.call(Array).sort(() => Math.random() - 0.5)
-        }
       }
     }
 </script>
+
+<style>
+
+</style>
+
 

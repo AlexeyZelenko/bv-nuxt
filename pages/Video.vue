@@ -1,76 +1,76 @@
 <template>
-  <v-app style="margin-top: 50px">
+  <div>
     <!--    Меню-->
-    <template>
+  <template>
       <v-tabs
-        background-color="indigo"
-        dark
-        fixed-tabs
+      background-color="indigo"
+      dark
+      fixed-tabs
+    >
+      <v-tab
+        @click="PlaylistIdAll"
       >
-        <v-tab
-          @click="PlaylistIdAll"
-        >
-          Все
-        </v-tab>
-        <v-tab
-          @click="PlaylistIdSermons"
-        >
-          Проповіді
-        </v-tab>
-        <v-tab
-          @click='PlaylistIdSong'
-        >
-          Хвала
-        </v-tab>
-        <v-tab
-          @click='PlaylistIdLife'
-        >
-          Життя церкви
-        </v-tab>
-        <v-tab
-          @click='PlaylistIdChildren'
-        >
-          Діти - вірши
-        </v-tab>
-      </v-tabs>
-    </template>
+        Все
+      </v-tab>
+      <v-tab
+        @click="PlaylistIdSermons"
+      >
+        Проповіді
+      </v-tab>
+      <v-tab
+        @click='PlaylistIdSong'
+      >
+        Хвала
+      </v-tab>
+      <v-tab
+        @click='PlaylistIdLife'
+      >
+        Життя церкви
+      </v-tab>
+      <v-tab
+        @click='PlaylistIdChildren'
+      >
+        Діти - вірши
+      </v-tab>
+    </v-tabs>
+      <v-container fluid>
+        <v-row justify="space-around">
+          <v-col
+            cols="5"
+            sm="4"
+            v-for="(video, i) in allVideos.items"
+            :key="i"
+          >
+            <videoItem
+              :video="video"
+            />
+          </v-col>
+        </v-row>
+      </v-container>
+   </template>
 
-    <template>
-      <v-row class="services">
-        <v-col
-          class="container"
-          v-for="(video, i) in allVideos.items"
-          :key="i"
-        >
-          <videoItem
-            style="text-align: center"
-            :video="video"
-          />
-        </v-col>
-      </v-row>
-    </template>
 
-    <!--    Добавить видео-->
-    <template>
-      <div class="text-center">
-        <v-btn
-          @click="resultPlus"
-          class="ma-2"
-          color="indigo"
-          outlined
-        >
-          Додати ще 5 відео
-        </v-btn>
-      </div>
-    </template>
-  </v-app>
+  <!--    Добавить видео-->
+  <template>
+    <div class="text-center">
+      <v-btn
+        @click="resultPlus"
+        class="ma-2"
+        color="indigo"
+        outlined
+      >
+        Додати ще 5 відео
+      </v-btn>
+    </div>
+  </template>
+  </div>
 </template>
 
 <script>
   const videoItem = () => import('@/components/videoItem')
 
   export default {
-    layout: 'videoLayout',
+    layout: 'default',
     name: "Video",
     components: {
       videoItem
@@ -136,6 +136,13 @@
 </script>
 
 <style>
-  @import '../assets/style.css';
+  .container {
+    width: 90%;
+    max-width: 1500px;
+    margin-left: auto;
+    margin-right: auto;
+  }
 </style>
+
+
 

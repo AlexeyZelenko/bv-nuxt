@@ -1,5 +1,5 @@
 <template>
-  <div style="max-height: 1000px; width: 100%" v-bind:class="[dialog ? blurClass : '', bkClass]">
+  <div style="max-height: 1500px; width: 100%" v-bind:class="[dialog ? blurClass : '', bkClass]">
     <v-parallax
       dark
       src="https://bv.ck.ua/wp-content/uploads/2017/05/3W_PlV0mzxU.jpg"
